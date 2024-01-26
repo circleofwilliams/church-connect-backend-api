@@ -1,4 +1,4 @@
-const Joi = require("joi");
+const Joi = require('joi');
 
 const name = Joi.string()
   .pattern(/^([a-z]|[A-Z])+$/)
@@ -13,10 +13,9 @@ const username = Joi.string()
 const email = Joi.string().email().lowercase();
 const password = Joi.string()
   .min(6)
-  .pattern(new RegExp("^[a-zA-Z0-9~`! @#$%^&*()_+={[}]|-:;\"'<,>.?/]{6,30}$"))
-  .lowercase();
+  .pattern(new RegExp('^[a-zA-Z0-9~`! @#$%^&*()_+={[}]|-:;"\'<,>.?/]{6,30}$'));
 
-const role = Joi.string().lowercase().valid("user", "admin");
+const role = Joi.string().lowercase().valid('user', 'admin');
 
 const authValidator = {
   //signing up data validator.

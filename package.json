@@ -3,25 +3,36 @@
   "version": "1.0.0",
   "description": "Backend api for the church web application",
   "main": "server.js",
-  "scripts": {
-    "test": "nodemon server.js",
-    "start": "node server.js"
-  },
   "repository": "github.com/CSMCW/church-connect-backend.git",
   "author": "Olamide Williams <circleofwilliams@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "lint-init": "eslint --init",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix ."
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.3",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
+    "date-fns": "^3.3.1",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "http-errors": "^2.0.0",
     "joi": "^17.11.1",
     "jsonwebtoken": "^9.0.2",
-    "morgan": "^1.10.0"
+    "mailgen": "^2.0.28",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.8",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "nodemon": "^3.0.2",
+    "prettier": "^2.5.0"
   }
 }

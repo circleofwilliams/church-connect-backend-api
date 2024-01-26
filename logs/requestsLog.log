@@ -1,0 +1,9 @@
+20240125	 23:30:34	 1b8e4e79-679b-4ae3-bcf6-5e4020704b12	 undefined	GET	/
+20240125	 23:30:42	 deb9057f-9ecf-4f9e-89f2-12e6ff94c497	 undefined	GET	/
+20240125	 23:59:11	 6c322fb6-1646-43ac-9158-9d40d817fabb	 undefined	POST	/signup
+20240126	 00:04:34	 ec1a0a0a-6c52-4607-83a0-5efde35a5a90	 undefined	GET	/
+20240126	 00:04:57	 1d4b7ef7-8b47-4b78-801d-0cdd433c25f6	 undefined	POST	/auth/signup
+20240126	 00:05:17	 2b28dcae-20c1-4798-88e1-a7f5dc50b0f8	 undefined	POST	/auth/signup
+20240126	 00:06:09	 6ba2e6ef-050d-474b-a2da-5b6e153e68fb	 undefined	POST	/auth/login
+20240126	 00:06:50	 8063f008-e153-4489-a877-496f3e98943b	 undefined	POST	/auth/logout
+20240126	 00:07:22	 8c312ea3-2d95-4f04-ab75-997c4e8ba67d	 undefined	DELETE	/auth/logout

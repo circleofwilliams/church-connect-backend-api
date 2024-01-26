@@ -1,0 +1,21 @@
+20240125	 23:31:03	 7d82c43f-32dd-4d66-a508-9d77217b2779	 NotFoundError, This page is unavailable!
+20240125	 23:31:13	 45d3f7fd-2407-4761-afbd-320ff36f35fe	 NotFoundError, This page is unavailable!
+20240125	 23:31:36	 e08b0beb-8f4f-43a6-be55-ca8b4e6678cd	 NotFoundError, This page is unavailable!
+20240125	 23:31:53	 74be994c-228c-4fcc-b687-74d45672417b	 UnprocessableEntityError, Cannot process your data, "firstname" is required
+20240125	 23:53:12	 3ebfe4dd-6aeb-4482-8462-4e1b3c9d9658	 Error from signup controller.
+20240125	 23:53:12	 f81b4aa5-8bfb-44ac-9448-a91abe4e6c85	 UnprocessableEntityError:, Cannot process your data, "firstname" is required
+20240125	 23:55:30	 b1c06668-a543-49be-bc9f-a4de075b7c14	 Error from database query
+20240125	 23:55:30	 894e2654-d76d-4960-91ee-a9c8de0089a3	 Error from signup controller.
+20240125	 23:55:30	 6c4a17bf-ac53-4faf-a14d-392b25ea832d	 undefined:, TypeError: fetch failed
+20240125	 23:56:07	 f6334a12-4408-4032-837b-e619f13da60d	 Error from signup controller.
+20240125	 23:56:07	 922eb94e-7606-410d-88e7-e0530a3fde72	 ConflictError:, username already exists!
+20240125	 23:56:33	 cb5aa1d3-5a36-411a-82ea-606eb7f4b5ca	 Error from signup controller.
+20240125	 23:56:33	 cd27ebaa-1668-4675-899c-7e5021676e61	 ConflictError:, email already exists!
+20240125	 23:59:18	 00bf6478-79c7-47ca-a039-8b3b4a01c69f	 Error from signup controller.
+20240125	 23:59:18	 329db53d-930b-45e4-911a-a1354d8b0d72	 ConflictError:, username already exists!
+20240126	 00:05:07	 ead7b541-8fd7-4a39-933d-591ff16f7b7d	 Error from database query
+20240126	 00:05:07	 5e33a1fc-51a8-4993-b3f0-ceeab3355458	 Error from signup controller.
+20240126	 00:05:07	 9cba667a-4c53-401b-a714-2993ba34651e	 undefined:, TypeError: fetch failed
+20240126	 00:05:18	 d16d45ce-bb85-481b-8fbf-794590f4c37d	 Error from signup controller.
+20240126	 00:05:18	 a87aa627-43cb-4b86-8c18-2da44daa5f63	 ConflictError:, username already exists!
+20240126	 00:06:50	 7da5bc88-3251-42ce-a69b-c354b1b8488a	 NotFoundError:, This page is unavailable!

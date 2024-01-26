@@ -1,18 +1,22 @@
-const Joi = require('joi');
+require('dotenv').config();
 const createError = require('http-errors');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
-const { authValidator } = require('../Schemas/authSchema');
-const { supabaseClient } = require('../Config/supabaseConfig');
+const { authValidator } = require('../schemas/authSchema');
+
 const {
   sendMessage,
-  encryptPassword,
   queryDatabase,
   insertIntoDatabase,
+} = require('../utils/database');
+
+const {
+  encryptPassword,
   generateAccessToken,
   isValidCredentials,
-} = require('../Utils/utilityFunctions');
+} = require('../utils/auth');
+
+const { logWriter } = require('../utils/logger');
+// const { sendEmail } = require('../utils/sendEmail');
 
 const signup = async (req, res, next) => {
   try {
@@ -33,8 +37,9 @@ const signup = async (req, res, next) => {
       validatedResult.username,
     );
 
-    if (existingUsername.length > 0)
+    if (existingUsername.length > 0) {
       throw new createError.Conflict('username already exists!');
+    }
 
     //checking if email exist in the database
     const existingEmail = await queryDatabase(
@@ -43,8 +48,9 @@ const signup = async (req, res, next) => {
       validatedResult.email,
     );
 
-    if (existingEmail.length > 0)
+    if (existingEmail.length > 0) {
       throw new createError.Conflict('email already exists!');
+    }
 
     //encryting the password.
     validatedResult.password = await encryptPassword(validatedResult.password);
@@ -55,7 +61,7 @@ const signup = async (req, res, next) => {
     //success message on saving the database
     sendMessage(res, 201, false, 'Created successfully');
   } catch (error) {
-    console.error('Error from signup:', error.message);
+    logWriter('Error from signup controller.', 'errorsLogs.log');
     next(error);
   }
 };
@@ -92,19 +98,37 @@ const login = async (req, res, next) => {
       throw new createError.Unauthorized();
     }
   } catch (error) {
-    console.error('Error from login:', error.message);
+    logWriter('Error from login controller', 'errorsLogs.log');
     next(error);
   }
 };
 
 //logout controller
-const logout = (req, res, next) => {
+const logout = async (req, res, next) => {
   try {
-    res.send('logout');
+    res.clearCookie('access_token');
+    sendMessage(res, 204, false, 'logged out.');
   } catch (error) {
-    console.error('Error from logout:', error.message);
+    logWriter('Error from logout controller', 'errorsLogs.log');
     next(error);
   }
 };
+
+// reset password routes handling.. send reset password link to the user.
+// const resetPassword = async (req, res, next) => {
+//   const mailOptions = {
+//     name: 'Taiwo Babs',
+//     reason: 'You are training Olamide to be a better developer kissess....',
+//     reciever: 'babsman4all@gm.com',
+//     subject: 'Your boy is doing this for the first time. Thank you boss!',
+//   };
+//   const sentEmail = await sendEmail(mailOptions);
+//   console.log('sent email:', sentEmail);
+//   if (sentEmail) sendMessage(res, 204, false, 'you should recieve an email');
+//   else {
+//     console.error('Error sentEmail is false', sentEmail);
+//     throw new createError.InternalServerError();
+//   }
+// };
 
 module.exports = { signup, login, logout };
