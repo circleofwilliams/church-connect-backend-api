@@ -1,12 +1,12 @@
 require('dotenv').config();
-const nodemailer = require('nodemailer');
+const nodeMailer = require('nodemailer');
 const mailGen = require('mailgen');
-const { logWriter } = require('./logger');
+const logWriter = require('./logger');
 
 const sendEmail = async (mailParameters) => {
   try {
     // create Transporter
-    const mailTransporter = nodemailer.createTransport({
+    const mailTransporter = nodeMailer.createTransport({
       service: 'gmail',
       auth: {
         user: process.env.EMAIL_USERNAME,
@@ -18,7 +18,7 @@ const sendEmail = async (mailParameters) => {
       theme: 'default',
       product: {
         name: 'Church Connect',
-        link: 'https://developmentserverislocalhost.com/',
+        link: mailParameters.link,
       },
     });
 
@@ -30,6 +30,7 @@ const sendEmail = async (mailParameters) => {
           mailParameters.reason,
         action: mailParameters.action || null,
         outro:
+          mailParameters.outro ||
           'Need help or have questions? Just reply to this mail and we will be glad to help you.',
       },
     };
@@ -54,4 +55,4 @@ const sendEmail = async (mailParameters) => {
   }
 };
 
-module.exports = { sendEmail };
+module.exports = sendEmail;

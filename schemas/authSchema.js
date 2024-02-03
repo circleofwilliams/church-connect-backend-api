@@ -34,10 +34,15 @@ const authValidator = {
     password: password.required(),
   }),
 
-  //password reset validator
+  //forgot password validator
+  forgotPasswordSchema: Joi.object().keys({
+    email: email.required(),
+  }),
+
+  //reset password validator
   resetPasswordSchema: Joi.object().keys({
-    username: username.required(),
+    password: password.required(),
   }),
 };
 
-module.exports = { authValidator };
+module.exports = authValidator;

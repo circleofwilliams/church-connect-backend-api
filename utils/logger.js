@@ -24,10 +24,4 @@ const logWriter = async (message, logName) => {
   }
 };
 
-// const requestsLogger = (req, res, next) => {
-//   const message = `${req.headers.origin}\t${req.method}\t${req.url}`;
-//   logWriter(message, 'requestsLog.log');
-//   next();
-// };
-
-module.exports = { logWriter };
+module.exports = logWriter;

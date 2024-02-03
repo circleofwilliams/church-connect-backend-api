@@ -1,50 +1,59 @@
 require('dotenv').config();
-const { supabaseClient } = require('../config/supabaseConfig');
-const { logWriter } = require('./logger');
 
-const sendMessage = (res, statusCode, errorMsg, msgContent, data) => {
-  const successCode = [200, 201, 202, 204, 206];
-  if (successCode.includes(statusCode)) {
-    res
-      .status(statusCode)
-      .json({ status: true, message: msgContent, data: data || {} });
+const supabaseClient = require('../config/supabaseConfig');
+const logWriter = require('./logger');
 
-    return;
-  }
-  if (!statusCode || statusCode === 500) {
-    msgContent = 'Internal Server Error.';
-  }
-
-  res
-    .status(statusCode)
-    .json({ error: errorMsg, message: msgContent, data: data || {} });
-};
-
-const queryDatabase = async (tablename, column, value) => {
+//query database with query options
+const queryDatabase = async (queryOptions) => {
   const { data: existingRecord, error: Error } = await supabaseClient
-    .from(tablename)
+    .from(queryOptions.tableName)
     .select()
-    .eq(column, value);
+    .eq(queryOptions.column, queryOptions.columnValue);
 
+  //if there is an error, throw error else return result
   if (Error) {
     logWriter('Error from database query', 'errorsLogs.log');
     throw Error;
+  } else {
+    return existingRecord;
   }
-
-  return existingRecord;
 };
 
-const insertIntoDatabase = async (tablename, data) => {
-  const { error: Error } = await supabaseClient.from(tablename).insert(data);
+//insert data into database with insert options
+const insertIntoDatabase = async (insertOptions) => {
+  const { error: Error } = await supabaseClient
+    .from(insertOptions.tableName)
+    .insert(insertOptions.data);
 
+  //if error throw error else return true
   if (Error) {
     logWriter('Error inserting into database.', 'errorsLogs.log');
     throw Error;
+  } else {
+    return true;
   }
 };
 
-module.exports = {
-  sendMessage,
+//update databse with update options
+const updateDatabase = async (updateOptions) => {
+  const { error: Error } = await supabaseClient
+    .from(updateOptions.tableName)
+    .update(updateOptions.data)
+    .eq(updateOptions.column, updateOptions.columnValue);
+
+  // if error throw erro else return true.
+  if (Error) {
+    logWriter('Error updating database.', 'errorsLogs.log');
+    throw Error;
+  } else {
+    return true;
+  }
+};
+
+const dbHelpers = {
   queryDatabase,
   insertIntoDatabase,
+  updateDatabase,
 };
+
+module.exports = dbHelpers;
