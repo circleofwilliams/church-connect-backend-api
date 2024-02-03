@@ -3,4 +3,6 @@ node_modules/
 ndoe_modules/*
 *.env
 .env
-
+logs/*
+logs
+log

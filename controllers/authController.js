@@ -211,11 +211,12 @@ const resetPassword = async (req, res, next) => {
         }
 
         //checking if user exists in database
-        const user = await dbHelpers.queryDatabase(
-          'users',
-          'username',
-          req.username,
-        );
+        let dbQueryOPtions = {
+          tableName: 'users',
+          column: 'username',
+          columnValue: req.username,
+        };
+        const user = await dbHelpers.queryDatabase(dbQueryOPtions);
         if (user.length > 0) {
           const newPassword = await authHelpers.encryptPassword(
             validatedResult.password,
