@@ -9,6 +9,7 @@ const authHelpers = require('../utils/auth');
 const logWriter = require('../utils/logger');
 const sendEmail = require('../utils/sendEmail');
 
+//singup controller.
 const signup = async (req, res, next) => {
   try {
     // validating users data from request body
@@ -73,6 +74,7 @@ const signup = async (req, res, next) => {
   }
 };
 
+//login controller
 const login = async (req, res, next) => {
   try {
     // validating users data from request body
@@ -195,6 +197,7 @@ const forgotPassword = async (req, res, next) => {
   }
 };
 
+//reset password controller.
 const resetPassword = async (req, res, next) => {
   try {
     if (req.params.token) {

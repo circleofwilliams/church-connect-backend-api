@@ -41,7 +41,7 @@ const authValidator = {
 
   //reset password validator
   resetPasswordSchema: Joi.object().keys({
-    password: password.required(),
+    newPassword: password.required(),
   }),
 };
 

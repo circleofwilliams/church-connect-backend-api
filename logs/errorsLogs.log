@@ -1,21 +1,2 @@
-20240203	 01:21:44	 07813417-804b-421b-9af6-4b2de13def1e	 NotFoundError: The page is not found or the http method is not supported!
-20240203	 01:22:28	 3dfd0072-28de-4525-9708-65d223396f73	 NotFoundError: The page is not found or the http method is not supported!
-20240203	 01:22:35	 a00cbd2f-4fbc-4ed9-904f-68f3ae4ce2fc	 Error from signup controller.
-20240203	 01:22:35	 9d52e8af-51f4-46ec-9933-91bc1f8972f9	 UnprocessableEntityError: Cannot process your data, "firstname" is required
-20240203	 01:25:17	 713b0bf2-57eb-40e6-8ba6-0c1c55b432be	 NotFoundError: The page is not found or the http method is not supported!
-20240203	 01:26:34	 1c38bae6-e50e-4acf-a849-43ee5eaf49c0	 NotFoundError: The page is not found or the http method is not supported!
-20240203	 01:27:07	 0d65ff84-f7fb-4557-b8a4-1d9703fc292d	 NotFoundError: The page is not found or the http method is not supported!
-20240203	 01:27:21	 c98f0310-862a-4880-bd42-dd9c1fc1f1dd	 NotFoundError: The page is not found or the http method is not supported!
-20240203	 01:33:42	 a389874c-bc5b-463c-8316-01da2f94d07b	 Error from reset password controller
-20240203	 01:33:42	 fe32dae5-7d4b-46dd-9693-ee6b285271fe	 UnprocessableEntityError: Cannot process your data, "email" is not allowed
-20240203	 01:34:45	 b3aa839c-4157-4e22-a916-f3d1496d0c36	 Error from database query
-20240203	 01:34:45	 5e2f7158-e61b-49c7-8851-c37ab5523635	 Error from reset password controller
-20240203	 01:34:45	 6bc19825-7976-4719-a3e0-bcce7f2c4032	 undefined: relation "public.undefined" does not exist
-20240203	 01:37:16	 6cae5dae-f258-4286-8721-9c4e985bfb8e	 Error from database query
-20240203	 01:37:16	 42613e0e-24da-4a5c-9fad-faf39a321683	 Error from reset password controller
-20240203	 01:37:16	 d08d2aae-75dd-4258-b0e7-552ea351d616	 undefined: relation "public.undefined" does not exist
-20240203	 01:39:37	 e7423d8f-66f3-4e86-8a8b-ca30121a3502	 Error from database query
-20240203	 01:39:37	 fa63af4a-6e22-4eed-bd37-a6d37aeebd07	 Error from reset password controller
-20240203	 01:39:37	 711f08f6-1bda-4cd2-9adb-6bc817ee9a3c	 undefined: relation "public.undefined" does not exist
-20240203	 01:47:53	 972436f1-1f66-49ae-9f22-1d7d34dd8079	 Error from reset password controller
-20240203	 01:47:53	 5684e4bc-720b-4ccc-b6c8-a42b3dcfd41b	 UnauthorizedError: Token expired
+20240203	 02:48:59	 ccc0dcee-dd7f-4d9a-8260-28774322fa5a	 NotFoundError: The page is not found or the http method is not supported!
+20240203	 02:50:18	 0068ae24-f05b-4bb8-a254-f20ddf8e9843	 NotFoundError: The page is not found or the http method is not supported!

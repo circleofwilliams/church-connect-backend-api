@@ -5,5 +5,6 @@ The main technology used is nodejs for the server and postgresql for the databas
 
 Check package.json for other node dependencies.
 
-it has been awesome doing this
+API Documentation is done explicitly with swagger... checkout localhost:6244/documentations
+
 

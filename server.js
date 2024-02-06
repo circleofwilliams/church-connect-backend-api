@@ -3,9 +3,12 @@ const express = require('express');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const createError = require('http-errors');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 const helpers = require('./utils/helpers');
 const authRoute = require('./routes/authRoutes');
+const swaggerDocs = require('./swagger');
 
 // creating an app instance.
 const app = express();
@@ -22,7 +25,7 @@ app.use(helpers.requestLogger);
 //port is an environment variable or 6244.
 const PORT = process.env.PORT || 6244;
 //interface to run server
-const INTERFACE = '192.168.43.11';
+const INTERFACE = '127.0.0.1';
 
 //handling home route
 app.get('/', (req, res) => {
@@ -35,6 +38,10 @@ app.get('/', (req, res) => {
 
 //handling all routes with /auth/...
 app.use('/auth', authRoute);
+
+//handling documentation route.
+const swaggerOptions = swaggerJsdoc(swaggerDocs);
+app.use('/documentations', swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 
 //handling not found routes
 app.use((req, res, next) => {

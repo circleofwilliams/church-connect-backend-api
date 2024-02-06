@@ -37,8 +37,7 @@ const authenticateToken = async (req, res, next) => {
   const token = req.cookies.access_token;
   const tokenSecret = process.env.ACCESS_TOKEN_SECRET;
 
-  if (token == null)
-    throw new createError.Unauthorized('No authorization token');
+  if (token == null) throw new createError.BadRequest('No authorization token');
 
   try {
     const user = await jwt.verify(token, tokenSecret);
